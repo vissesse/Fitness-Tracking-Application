@@ -9,18 +9,19 @@ describe(" API", () => {
     });
     test("Should register different types os activities [ Running, walking, cycling, swimming, etc.]", async () => {
         const input = {
-            activity: "Running",
-            distance: 100 // ins meters
-            , duraction: 20 // in minutes
-            , burnedCalories: 100 // 
-
+            userId: 'aa354842-59bf-42e6-be3a-6188dbb5fff8',
+            type: "Running"
+            , description: 'Luanda principal Gimmy'
         }
-        const response = await axios.post('http://localhost:3000/register', input)
+        const response = await axios.post('http://localhost:3000/activity/register', input)
         expect(response.status).toBe(200)
+
+        const responseActivity = await axios.get(`http://localhost:3000/activity/${response.data.activityId}`)
+
+        expect(responseActivity.data.activity.type).toBe(input.type)
+        expect(responseActivity.data.activity.description).toBe(input.description)
+
+
     });
-    test("Verificação do fluxo completo de registro de um Treino e atualização de uma Meta", async () => {
-
-
-    })
 
 })

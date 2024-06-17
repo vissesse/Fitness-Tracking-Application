@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "npx nodemon src/server.ts",
-    "test": "jest test",
+    "dev": "npx nodemon src/main.ts",
+    "test": "jest test ",
     "coverage-test": "jest --collectCoverage",
     "dev:test": "jest test",
     "build": "tsc --build"
